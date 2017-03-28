@@ -1,7 +1,29 @@
-Problems:
-Freddie Hayden - 12330726
+Project Description:
 Tríona Barrow - 11319851
+Freddie Hayden - 12330726
 Edward Moriarty - 12405042
 
-We could not find any problems in the program, but due to time constraints and
-team members being ill, there could very well be problems in the implementation.
+The program works through four classes, as follows:
+	# BoundedBuffer
+Deals specifically with the creation of a BoundedBuffer - at basics, a String
+array that is added to and removed from on a FIFO basis.
+	# Producer
+Deals specifically with the reading of String from the client and adds them
+to the BoundedBuffer, with the username taken from the client attached in order
+to allow the Consumer class to access these and send them out to each connected
+client.
+	# Consumer
+Keeps track of the currently connected clients and usernames, and interacts with
+the buffer to communicate messages from the buffer to these.
+	# ChatServer
+Used as the main class in order to set up the required Socket, Profucer,
+BoundedBuffer and Consumer variables in order to interact with the Applet.
+
+The program works from the command line in a terminal (or cmd). It accepts
+information from the chat.html file used within the applet to populate a
+username, port number, etc.
+
+The program then runs, using threads in order to both read input from the
+connected clients and write these to the BoundedBuffer, and write from the
+BoundedBuffer to each connected client. This continues until there are no
+clients attached.
